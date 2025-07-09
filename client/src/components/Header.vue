@@ -6,6 +6,7 @@
 
 <style>
  .header{
+   margin: auto;
     
  }
 </style>
