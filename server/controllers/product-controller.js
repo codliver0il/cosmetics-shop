@@ -13,11 +13,11 @@ export const create = async(req, res) => {
         res.status(200).json(savedProduct); //201
     } 
     catch (err) {
-        res.status(500).json({message: "Internal Server Error"});
+        res.status(500).json({error: "Internal Server Error"});
     }
 }
 
-export const fetch = async(req, res) => { // все товары
+export const fetchProducts = async(req, res) => { // все товары
     try {
         const products = await Product.find()
         if (products.length === 0)
@@ -27,11 +27,24 @@ export const fetch = async(req, res) => { // все товары
         res.status(200).json(products);
     }
     catch (err) {
-        res.status(500).json({message: "Internal Server Error"});
+        res.status(500).json({error: "Internal Server Error"});
     }
 }
 
-// один товар ?
+export const fetchProduct = async(req, res) => { // один товар
+    try {
+        const id = req.params.id;
+        const product = await Product.findOne({_id: id});
+        if (!product)
+        {
+            return res.status(404).json({message: "Product not found"});
+        }
+        res.status(200).json(product);
+    } 
+    catch (err) {
+        res.status(500).json({error: "Internal Server Error"});
+    }
+} 
 
 export const update = async(req, res) => {
     try {
@@ -45,7 +58,7 @@ export const update = async(req, res) => {
         res.status(200).json(updateProduct);
     }
     catch (err) {
-        res.status(500).json({message: "Internal Server Error"});
+        res.status(500).json({error: "Internal Server Error"});
     }
 }
 
@@ -61,7 +74,7 @@ export const deleteProduct = async(req, res) => {
         res.status(200).json({message: "Product deleted successfully"});
     }
     catch (err) {
-        res.status(500).json({message: "Internal Server Error"});
+        res.status(500).json({error: "Internal Server Error"});
     }
 }
 

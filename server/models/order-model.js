@@ -1,13 +1,5 @@
 import mongoose from 'mongoose';
 
-
-var createdAt = function(){
-    const now = new Date();
-    const formattedDate = now.toISOString();
-    return formattedDate;
-};
-
-
 const orderSchema = new mongoose.Schema({
     firstName: { type: String, required: true }, 
     lastName: { type: String, required: true }, 
@@ -17,7 +9,7 @@ const orderSchema = new mongoose.Schema({
     products: { type: Object, required : true }, 
     status: { type: Object, required : true },
     price: { type: Number, required : true},
-    createdAt: { type: String, default: createdAt}
+    orderNumber: {type: String, required: true, unique: true}
 })
 
 export default mongoose.model("order", orderSchema);

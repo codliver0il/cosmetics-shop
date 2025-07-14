@@ -13,11 +13,11 @@ export const create = async(req, res) => { //функция создания а�
         res.status(200).json(savedUser); //201
     } 
     catch (err) {
-        res.status(500).json({message: "Internal Server Error"});
+        res.status(500).json({error: "Internal Server Error"});
     }
 }
 
-export const fetch = async(req, res) => { // все пользователи
+export const fetchUsers = async(req, res) => { // все пользователи
     try {
         const users = await User.find();
         if (users.length === 0)
@@ -27,11 +27,24 @@ export const fetch = async(req, res) => { // все пользователи
         res.status(200).json(users); 
     } 
     catch (err) {
-        res.status(500).json({message: "Internal Server Error"});
+        res.status(500).json({error: "Internal Server Error"});
     }
 }
 
-//один пользователь ?
+export const fetchUser = async(req, res) => { // один пользователь
+    try {
+        const id = req.params.id;
+        const user = await User.findOne({_id: id});
+        if (!user)
+        {
+            return res.status(404).json({message: "User not found"});
+        }
+        res.status(200).json(user);
+    } 
+    catch (err) {
+        res.status(500).json({error: "Internal Server Error"});
+    }
+}
 
 export const update = async(req, res) => {
     try { 
@@ -45,7 +58,7 @@ export const update = async(req, res) => {
         return res.status(200).json(updateUser); 
     }
     catch (err) {
-        res.status(500).json({message: "Internal Server Error"});
+        res.status(500).json({error: "Internal Server Error"});
     }
 }
 
@@ -61,6 +74,6 @@ export const deleteUser = async(req, res) => {
         return res.status(200).json({message: "User deleted successfully"});
     } 
     catch (err) {
-        res.status(500).json({message: "Internal Server Error"});
+        res.status(500).json({error: "Internal Server Error"});
     }
 }
