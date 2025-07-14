@@ -17,7 +17,7 @@ export const create = async(req, res) => { //функция создания а�
     }
 }
 
-export const fetch = async(req, res) => {
+export const fetch = async(req, res) => { // все пользователи
     try {
         const users = await User.find();
         if (users.length === 0)
@@ -31,6 +31,8 @@ export const fetch = async(req, res) => {
     }
 }
 
+//один пользователь ?
+
 export const update = async(req, res) => {
     try { 
         const id = req.params.id;
@@ -39,9 +41,8 @@ export const update = async(req, res) => {
         {
             return res.status(404).json({message: "User not found"});
         }
-        const updateUser = await User.findByIdAndUpdate(id, req.body, {new: true});
+        const updateUser = await User.findByIdAndUpdate(id, req.body, {new: true}); // { new: true } возвращает уже обновлённый документ, а не исходный
         return res.status(200).json(updateUser); 
-
     }
     catch (err) {
         res.status(500).json({message: "Internal Server Error"});
@@ -57,7 +58,7 @@ export const deleteUser = async(req, res) => {
             return res.status(404).json({message: "User not found"});
         }
         await User.findByIdAndDelete(id);
-        return res.status(200).json({message: "User deleted succesfully"});
+        return res.status(200).json({message: "User deleted successfully"});
     } 
     catch (err) {
         res.status(500).json({message: "Internal Server Error"});
