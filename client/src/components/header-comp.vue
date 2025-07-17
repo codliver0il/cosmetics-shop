@@ -1,6 +1,8 @@
 <template>
    <div class="header">
-
+      <p>
+        It is header
+      </p>
    </div> 
 </template>
 
