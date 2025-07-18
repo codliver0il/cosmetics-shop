@@ -4,7 +4,7 @@
     <div class="inner">
       <div class="item">
         <img
-          src="static/images/123.jpg"
+          src="/catt.jpg"
           alt="Матирующий крем SPF 15"
           class="img"
         />
@@ -86,7 +86,7 @@
   border-width: 0.5px;
   border-radius: 10px;
   margin: 1.5px;
-  background-color: #d8c6c6;
+  background-color: #ffffff;
   text-transform: none;
 }
 

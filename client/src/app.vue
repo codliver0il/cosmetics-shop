@@ -1,10 +1,11 @@
 <template>
-    <div id="app">
+    <div id="app" class="w-4/5 m-auto h-screen mt-10">
         <Header />
         <Main />
         <Product />
         <SideNav />
     </div>
+
 </template>
 
 <script>
