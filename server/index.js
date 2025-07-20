@@ -7,8 +7,16 @@ import userRoute from "./routes/user-route.js";
 import productRoute from "./routes/product-route.js";
 import orderRoute from "./routes/order-route.js";
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 app.use(bodyParser.json());
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 dotenv.config();
 

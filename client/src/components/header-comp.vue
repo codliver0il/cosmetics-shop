@@ -25,6 +25,3 @@
     </ul>
    </header>
 </template>
-
-<style>
-</style>
