@@ -1,19 +1,31 @@
 <template>
-    <p>
-        Main part of page
-    </p>
+    <div class="flex flex-wrap gap-4">
+        <cardComp
+        v-for="product in products"
+        :key="product._id"
+        :image="`http://localhost:2609${product.images[0]}`"
+        :title="product.title"
+        :price="product.price"
+        />
+    </div>
 </template>
 
 <script setup>
-//import sideNav from './SideNavApp.vue';
-//import product from '/.product.vue'
+import {ref, onMounted} from 'vue';
+import axios from 'axios';
+import cardComp from './card-comp.vue';
 
+const products = ref([]);
+
+onMounted( async () => {
+    try 
+    {
+       const res = await axios.get("http://localhost:2609/api/product/getallproducts");
+       products.value = res.data;
+    } 
+    catch (err)
+    {
+        console.error('Ошибка при получении товаров: ', err);
+    }
+})
 </script>
-
-<style>
- body {
-    margin: 0px;
-    padding: 0px;
-}
-
-</style>
