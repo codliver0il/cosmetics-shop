@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Header from "./components/header-comp.vue";
+import Header from "./components/heander/header-comp.vue";
 import Main from "./components/main-comp.vue";
 
 export default {
