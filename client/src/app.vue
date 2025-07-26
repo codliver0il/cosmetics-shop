@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="w-4/5 m-auto h-screen mt-10">
+    <div id="app" class="w-4/5 m-auto h-screen mt-10 pt-16 ">
         <Header class="mb-7" />
         <Main />
     </div>

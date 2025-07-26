@@ -1,13 +1,10 @@
 <template>
-  <div class="хуй">
-    <div class="relative">
-      <img src="/search.png" alt="Search" class="absolute top-1 left-1.5 w-5" />
-
-      <input
-        class="border outline-none rounded-md py-0.5 pl-8 pr-100"
-        type="text"
-        placeholder="Поиск..."
-      />
-    </div>
+  <div class="relative w-full max-w-md">
+    <img src="/search.png" alt="Search" class="absolute top-2 left-2 w-5" />
+    <input
+      type="text"
+      placeholder="Поиск..."
+      class="w-full border rounded-md pl-8 pr-4 py-1 focus:outline-none"
+    />
   </div>
 </template>
