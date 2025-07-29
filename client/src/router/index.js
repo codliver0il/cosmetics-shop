@@ -1,0 +1,24 @@
+import { createRouter, createWebHistory } from 'vue-router' // createWebHistory чтобы использовать обычные URL
+
+import Main from '../views/main-page.vue'
+import ProductPage from '../views/card-page.vue'
+
+const routes =[
+    {
+        path: '/',
+        name: 'Main',
+        component: Main
+    },
+    {
+        path: '/product/:id',
+        name: 'ProductPage',
+        component: ProductPage
+    }
+]
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes
+})
+
+export default router

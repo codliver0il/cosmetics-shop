@@ -3,6 +3,7 @@
         <cardComp
         v-for="product in products"
         :key="product._id"
+        :id="product._id"
         :image="`http://localhost:2609${product.images[0]}`"
         :title="product.title"
         :price="product.price"
@@ -13,7 +14,7 @@
 <script setup>
 import {ref, onMounted} from 'vue';
 import axios from 'axios';
-import cardComp from './card-comp.vue';
+import cardComp from '../components/card-comp.vue';
 
 const products = ref([]);
 

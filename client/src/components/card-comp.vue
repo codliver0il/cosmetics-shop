@@ -1,9 +1,12 @@
 <template>
   <div class="w-64 bg-white rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-    <img :src="image" alt="Product image" class="w-full h-48 object-cover" />
-    
+    <router-link :to="`/product/${id}`">
+      <img :src="image" alt="Product image" class="w-full h-48 object-cover" />
+    </router-link>
     <div class="p-4 flex flex-col justify-between h-32">
-      <h2 class="text-lg font-semibold mb-2 line-clamp-2">{{ title }}</h2>
+      <router-link :to="`/product/${id}`">
+        <h2 class="text-lg font-semibold mb-2 line-clamp-2">{{ title }}</h2>
+      </router-link>
       <div class="flex justify-between items-center">
         <span class="text-rose-300 font-bold text-md">{{ price }} ₽</span>
         <button
@@ -19,8 +22,9 @@
 
 <script setup>
 defineProps ({
-    image: Image,
+    id: String,
+    image: String,
     title: String,
-    price: Number
+    price: Number,
 })
 </script>
