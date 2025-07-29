@@ -33,8 +33,8 @@
 <script setup>
 import { ref } from 'vue'
 import Name from './Name.vue'
-import Search from './search.vue'
-import Cart from './cart.vue'
+import Search from './Search.vue'
+import Cart from './Cart.vue'
 import UserProfile from './UserProfile.vue'
 import SideNav from './SideNav.vue'
 
