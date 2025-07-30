@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-3xl mx-auto mt-8 p-4 bg-white rounded shadow">
+  <div v-if="loaded" class="max-w-3xl mx-auto mt-8 p-4 bg-white rounded shadow">
     <div v-for="img in imageUrls" :key="img" class="mb-4">
         <img :src="img" alt="product image" class="rounded-lg w-full max-w-sm" />
     </div>
@@ -9,6 +9,10 @@
       <span>{{ product.price }} ₽</span>
       <span v-if="product.oldPrice" class="line-through text-gray-400">{{ product.oldPrice }} ₽</span>
     </div>
+  </div>
+
+  <div v-else class="text-lg font-semibold mb-2 line-clamp-2 text-gray-400">
+    Загрузка товара...
   </div>
 </template>
 
@@ -20,12 +24,14 @@ import { useRoute } from 'vue-router'; // получить текущий мар
 const route = useRoute();
 const product = ref({});
 const imageUrls = ref([]); 
+const loaded = ref(false);
 
 onMounted(async () => {
     try {
         const res = await axios.get(`http://localhost:2609/api/product/getproduct/${route.params.id}`);
         product.value = res.data;
         imageUrls.value = res.data.images.map(img => `http://localhost:2609${img}`);// относительная ссылка в абсолютную
+        loaded.value = true;
     } 
     catch (err) 
     {
