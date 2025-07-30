@@ -88,6 +88,9 @@ export const fetchProduct = async(req, res) => { // один товар
 
 export const update = async(req, res) => {
     try {
+        console.log("=== ОБНОВЛЕНИЕ ТОВАРА ===");
+        console.log("ID:", id);
+        console.log("Тело запроса:", req.body);
         const id = req.params.id;
         const productExist = await Product.findOne({_id: id});
         if(!productExist)
