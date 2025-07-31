@@ -49,6 +49,7 @@
         </button>
 
         <div class="space-y-2">
+          <p>{{ product.description }}</p>
           <p><strong>Объем:</strong> {{ product.specifications.volume }}</p>
           <p><strong>Применение:</strong> {{ product.specifications.use }}</p>
           <p><strong>Страна производства:</strong> {{ product.specifications.country }}</p>
