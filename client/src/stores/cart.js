@@ -51,6 +51,7 @@ export const useCartStore = defineStore('cart', {
                 return 0;
             }
         }  
-        // localStorage через pinia-plugin-persistedstate
-    }
+
+    },
+    persist: true
 })
