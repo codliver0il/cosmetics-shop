@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.32.0",
+    "eslint-plugin-vue": "^10.3.0"
   }
 }

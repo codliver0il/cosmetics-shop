@@ -1,6 +1,6 @@
 <template>
   <div class="relative w-full max-w-md">
-    <img src="/search.png" alt="Search" class="absolute top-2 left-2 w-5" />
+    <img src="/1.png" alt="search" class="absolute top-1.5 left-1.5 w-5" />
     <input
       type="text"
       placeholder="Поиск..."
