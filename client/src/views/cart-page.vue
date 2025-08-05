@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class = "sticky">
-        <button @click="$router.back()" class="absolute -left-16 top-0 px-4 py-2 bg-white hover:bg-gray-100 text-sm rounded shadow">
+        <button @click="$router.back()" class="absolute -left-16 top-0 px-4 py-2 bg-white hover:bg-gray-100 text-sm rounded-xl shadow">
           ←
         </button>
     </div>
@@ -13,7 +13,7 @@
           </button>
         </div>
    <div v-if="cart.items.length > 0" class="space-y-6">
-      <div v-for="item in cart.items" :key="item.id" class="flex items-center bg-white rounded-2xl shadow p-4 gap-6">
+      <div v-for="item in cart.items" :key="item.id" class="flex items-center bg-white rounded-xl shadow p-4 gap-6">
         <button @click="cart.removeFromCart(item.id)" class="text-sm text-gray-400 hover:text-red-400 transition">
             ✕
         </button>

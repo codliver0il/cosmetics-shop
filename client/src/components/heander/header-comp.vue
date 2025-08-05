@@ -21,6 +21,7 @@
      
       <div class="flex items-center gap-6 justify-end min-w-[200px]">
         <Cart />
+        <Favourites/>
         <UserProfile />
       </div>
     </div>
@@ -37,6 +38,7 @@ import Search from './search.vue'
 import Cart from './cart.vue'
 import UserProfile from './UserProfile.vue'
 import SideNav from './SideNav.vue'
+import Favourites from './favourites.vue'
 
 const isNavOpen = ref(false)
 

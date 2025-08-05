@@ -2,23 +2,15 @@
   <div v-if="loaded" class="flex justify-center mt-8">
     <div class="relative flex gap-4 max-w-7xl w-full px-4">
       <div class = "sticky">
-        <button @click="$router.back()" class="absolute -left-16 top-0 px-4 py-2 bg-white hover:bg-gray-100 text-sm rounded shadow">
+        <button @click="$router.back()" class="absolute -left-16 top-0 px-4 py-2 bg-white hover:bg-gray-100 text-sm rounded-xl shadow">
           ←
         </button>
       </div>
-      <div class="flex-1 p-6 bg-white rounded shadow flex gap-10">
+      <div class="flex-1 p-6 bg-white rounded-xl shadow flex gap-10">
         <div class="w-1/2">
-          <img
-            :src="currentImage"
-            alt="Product image"
-            class="rounded-lg w-full h-auto object-cover mb-4"
-          />
+          <img :src="currentImage" alt="Product image" class="rounded-xl w-full h-auto object-cover mb-4"/>
           <div class="flex gap-2">
-            <button v-for="(img, index) in imageUrls"
-              :key="img"
-              class="w-16 h-16 border rounded overflow-hidden"
-              @click="currentImage = img"
-            >
+            <button v-for="(img, index) in imageUrls" :key="img" class="w-16 h-16 border rounded-xl overflow-hidden" @click="currentImage = img">
               <img :src="img" alt="Thumbnail" class="object-cover w-full h-full" />
             </button>
           </div>
