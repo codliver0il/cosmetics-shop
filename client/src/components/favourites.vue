@@ -5,3 +5,7 @@
     </router-link>
     </div>
   </template>
+
+<script setup>
+import returnButton from '@/elements/return-button.vue';
+</script>

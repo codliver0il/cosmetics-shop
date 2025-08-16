@@ -31,8 +31,7 @@
   width: 100vw;
   background-color: #333;
   color: white;
-  z-index: 1000;
- /* padding: 0.5rem 0;*/
+  z-index: 999;
   border-bottom: 1px solid #444;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <header class="fixed top-0 left-0 w-full bg-white ">
+  <header class="fixed top-0 left-0 w-full bg-white z-10">
     <div class="flex items-center justify-between px-4 py-2 mx-auto">
      
       <div class="flex items-center gap-4 min-w-[200px]">
@@ -23,6 +23,7 @@
         <Cart />
         <Favourites/>
         <UserProfile />
+        <Sorts/>
       </div>
     </div>
 
@@ -38,7 +39,8 @@ import Search from './search.vue'
 import Cart from './cart.vue'
 import UserProfile from './UserProfile.vue'
 import SideNav from './SideNav.vue'
-import Favourites from './favourites.vue'
+import Favourites from '../favourites.vue'
+import Sorts from './Sorts.vue'
 
 const isNavOpen = ref(false)
 

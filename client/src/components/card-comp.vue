@@ -1,7 +1,7 @@
 <template>
   <div class="w-64 bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-    <div class="relative">
-      <button @click.stop="toggleFavourites" class="absolute top-2 right-2 z-10">
+    <div class="relative z-0">
+      <button @click.stop="toggleFavourites" class="absolute top-2 right-2">
         <img :src="isFavourite ? '/free-icon-heart-2107845.png' : '/free-icon-heart-1077035.png'" alt="Favorite icon" class="w-6 h-6"/>
       </button>
       <router-link :to="`/product/${id}`" class="block">
@@ -17,26 +17,14 @@
       </div>
     </router-link>
 
-    <div class="px-4 pb-4">
-      <div v-if="quantity === 0">
-        <button @click.stop="AddProductToCart" class="w-full bg-rose-300 text-white py-2 font-bold text-sm rounded-xl hover:bg-rose-400 transition">
-          В корзину
-        </button>
-      </div>
-      <div v-else class="flex items-center justify-between bg-rose-50 border border-rose-300 rounded-xl px-2 py-1">
-          <button @click="decrement" class="text-rose-400 text-xl font-bold px-3">−</button>
-          <span class="font-semibold text-gray-700">{{ quantity }}</span>
-          <button @click="increment" class="text-rose-400 text-xl font-bold px-3">+</button>
-      </div>
-    </div>
+    <addToCartButton :id="id" :image="image" :title="title" :price="price" />
   </div>
 </template>
 
 <script setup>
-import { useCartStore } from '@/stores/cart';
+import addToCartButton from '@/elements/add-to-cart-button.vue';
 import { useFavouritesStore } from '@/stores/favourites';
-import { computed } from 'vue';
-import { ref } from 'vue'
+import { computed } from 'vue'
 
 const { id, image, title, price } = defineProps({
   id: String,
@@ -45,20 +33,7 @@ const { id, image, title, price } = defineProps({
   price: Number,
 });
 
-const CartStore = useCartStore();
 const FavouritesStore = useFavouritesStore();
-
-const quantity = computed(() => CartStore.getQuantity(id));
-function AddProductToCart() {
-  CartStore.addToCart({id, image, title, price});
-}
-function increment(){
-  CartStore.incrementQuantity(id);
-}
-function decrement(){
-  CartStore.decrementQuantity(id);
-}
-
 
 const isFavourite = computed(() => FavouritesStore.isFavourite(id));
 function toggleFavourites() {
