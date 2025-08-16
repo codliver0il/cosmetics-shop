@@ -1,9 +1,10 @@
 <template>
   <div>
-    <div class="sticky">
-      <returnButton/>
+    <div class = "sticky">
+        <button @click="$router.back()" class="absolute -left-16 top-0 px-4 py-2 bg-white hover:bg-gray-100 text-sm rounded-xl shadow">
+          ←
+        </button>
     </div>
-
     <div class="max-w-6xl mx-auto mt-10 px-4">
     <div class="flex justify-between items-center mb-8">
         <h1 class="text-3xl font-bold">Корзина</h1>
