@@ -18,3 +18,4 @@ const totalPrice = computed(() =>
 )
 
 </script>
+

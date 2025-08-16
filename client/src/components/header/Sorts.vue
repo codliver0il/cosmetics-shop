@@ -26,12 +26,13 @@
 /* Вся полоса на весь экран */
 .sort-menu {
   position: fixed;
-  top: 56px;
+  top: 55px; /* заменим позже */
   left: 0;
   width: 100vw;
   background-color: #333;
   color: white;
-  z-index: 999;
+  z-index: 1000;
+  padding: 0rem 0;
   border-bottom: 1px solid #444;
 }
 
@@ -84,6 +85,7 @@
   position: absolute;
   top: 100%;
   left: 50%;
+  border-radius: 24px;
   transform: translateX(-50%);
   background: white;
   color: black;

@@ -1,7 +1,7 @@
 <template>
-  <header class="fixed top-0 left-0 w-full bg-white z-10">
+  <header class="fixed top-0 left-0 w-full bg-white z-50 shadow">
     <div class="flex items-center justify-between px-4 py-2 mx-auto">
-     
+      <!-- Бургер + Название -->
       <div class="flex items-center gap-4 min-w-[200px]">
         <button @click="toggleSideNav" class="focus:outline-none">
           <div class="space-y-1">
@@ -13,12 +13,12 @@
         <Name />
       </div>
 
-      
+      <!-- Поиск -->
       <div class="flex-1 flex justify-center">
         <Search />
       </div>
 
-     
+      <!-- Корзина + Профиль -->
       <div class="flex items-center gap-6 justify-end min-w-[200px]">
         <Cart />
         <Favourites/>
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    
+    <!-- Боковая навигация -->
     <SideNav v-if="isNavOpen" @close="isNavOpen = false" />
   </header>
 </template>
